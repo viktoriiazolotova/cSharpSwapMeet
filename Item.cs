@@ -1,10 +1,26 @@
+using System.Dynamic;
+using System.Runtime.CompilerServices;
+
 namespace cSharpSwapMeet
 {
-    class Item
+    public abstract class Item
     {
-        public static void ItemMethod()
+        public Item(int itemID, string category)
         {
-            Console.WriteLine("This is inside of Item class");
+            ItemID = itemID;
+            Category = category;
         }
+
+        public int ItemID { get; }
+        public string Category { get; set; }
+
+        public override string ToString()
+        {
+            return $"This item with ID {ItemID} belongs to the category of {Category}";
+        }
+        // public static void ItemMethod()
+        // {
+        //     Console.WriteLine("This is inside of Item class");
+        // }
     }
 }

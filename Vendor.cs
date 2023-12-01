@@ -1,10 +1,14 @@
 namespace cSharpSwapMeet
 {
-    class Vendor
+    public class Vendor
     {
-        public static void VendorMethod()
-        {
-            Console.WriteLine("This is inside of the vendor class");
-        }
+
+        public List<Item> Inventory { get; set; } = new();
+        //this is testing
+        // public static void VendorMethod()
+
+        // {
+        //     Console.WriteLine("This is inside of the vendor class");
+        // }
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cSharpSwapMeet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83444d08361ede463f0cbade734aa3ba8ab59608")]
 [assembly: System.Reflection.AssemblyProductAttribute("cSharpSwapMeet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cSharpSwapMeet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
