@@ -1,5 +1,14 @@
 # cSharpSwapMeet
 
+## Tasks:
+1. Create Vendor Class
+2. Create Item Class
+3. Create Decor Class that would inheritance from Item class (itemID and category)
+4. Create Electronics Class that would inheritance from Item class (itemID and category)
+5. Create Clothing Class that would inheritance from Item class (itemID and category)
+6. Make default category for Decor class - "Decor", for Electronics - "Electronics", for Clothing Class - "Clothing"
+7. Get set itemID, category for Item and get set name for vendor
+
 
 ## Skills Assessed
 

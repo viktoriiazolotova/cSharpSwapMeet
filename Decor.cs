@@ -1,6 +1,6 @@
 namespace cSharpSwapMeet
 {
-    public class Decor(int itemID, string category) : Item(itemID, category)
+    public class Decor(int itemID, string category = "Decor") : Item(itemID, category)
     {
 
     }

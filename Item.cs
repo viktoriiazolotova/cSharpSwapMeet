@@ -18,9 +18,9 @@ namespace cSharpSwapMeet
         {
             return $"This item with ID {ItemID} belongs to the category of {Category}";
         }
-        // public static void ItemMethod()
-        // {
-        //     Console.WriteLine("This is inside of Item class");
-        // }
+        public static void ItemMethod()
+        {
+            Console.WriteLine("This is inside of Item class");
+        }
     }
 }
