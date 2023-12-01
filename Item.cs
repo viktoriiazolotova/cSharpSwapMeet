@@ -11,7 +11,7 @@ namespace cSharpSwapMeet
             Category = category;
         }
 
-        public int ItemID { get; }
+        public int ItemID { get; set; }
         public string Category { get; set; }
 
         public override string ToString()
