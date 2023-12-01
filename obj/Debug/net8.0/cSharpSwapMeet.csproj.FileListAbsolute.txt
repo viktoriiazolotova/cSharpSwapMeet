@@ -1,0 +1,15 @@
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/bin/Debug/net8.0/cSharpSwapMeet
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/bin/Debug/net8.0/cSharpSwapMeet.deps.json
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/bin/Debug/net8.0/cSharpSwapMeet.runtimeconfig.json
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/bin/Debug/net8.0/cSharpSwapMeet.dll
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/bin/Debug/net8.0/cSharpSwapMeet.pdb
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/cSharpSwapMeet.GeneratedMSBuildEditorConfig.editorconfig
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/cSharpSwapMeet.AssemblyInfoInputs.cache
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/cSharpSwapMeet.AssemblyInfo.cs
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/cSharpSwapMeet.csproj.CoreCompileInputs.cache
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/cSharpSwapMeet.sourcelink.json
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/cSharpSwapMeet.dll
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/refint/cSharpSwapMeet.dll
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/cSharpSwapMeet.pdb
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/cSharpSwapMeet.genruntimeconfig.cache
+/Users/viktoriiazolotova/Developer/projects/cSharpSwapMeet/obj/Debug/net8.0/ref/cSharpSwapMeet.dll
