@@ -8,7 +8,9 @@ namespace cSharpSwapMeet
         {
             // Console.WriteLine("Hello, World!");
 
-            var vendor1 = new Vendor();
+            var vendor1 = new Vendor("Cool Stuff");
+            //to check what is printed for vendor To String Method.
+            Console.WriteLine(vendor1);
 
             Decor vase = new Decor(1);
             Decor wallPicture = new Decor(2, "Decor");

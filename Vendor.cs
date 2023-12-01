@@ -5,6 +5,16 @@ namespace cSharpSwapMeet
 {
     public class Vendor
     {
+        public Vendor(string vendorName)
+        {
+            VendorName = vendorName;
+        }
+        public string VendorName { get; set; }
+
+        public override string ToString()
+        {
+            return $"Vendor name is: {VendorName}.";
+        }
         public List<Item> Inventory { get; set; } = new();
         public void AddItem(Item item)
         {
