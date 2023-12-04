@@ -4,9 +4,9 @@
 1. DONE: Create Vendor Class
 2. DONE: Create Item Class
 3. DONE: Create Decor Class that would inheritance from Item class (itemID and category)
-4. Create Electronics Class that would inheritance from Item class (itemID and category)
-5. Create Clothing Class that would inheritance from Item class (itemID and category)
-6. Make default category for Decor class - "Decor", for Electronics - "Electronics", for Clothing Class - "Clothing"
+4. DONE:Create Electronics Class that would inheritance from Item class (itemID and category)
+5. DONE:Create Clothing Class that would inheritance from Item class (itemID and category)
+6. DONE:Make default category for Decor class - "Decor", for Electronics - "Electronics", for Clothing Class - "Clothing"
 7. DONE: Set up {Get; set}  for itemID, category for Item and to set up {get, set} for  name for vendor
 
 
@@ -50,8 +50,8 @@ In Wave 1 we will create the `Vendor` class.
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
 - When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
 
-List<Item> inventory = new Item {radio, p2};
-Item radio = new Item();
+//List<Item> inventory = new Item {radio, p2};
+//Item radio = new Item();
 
 
 

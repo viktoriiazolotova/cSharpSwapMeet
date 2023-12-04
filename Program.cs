@@ -59,6 +59,9 @@ namespace cSharpSwapMeet
                 Console.WriteLine(item);
             }
 
+            List<Item> newItems = [];
+            newItems = vendor1.GetItemsByCategory("Decor");
+            Console.WriteLine($"Length of new list is: {newItems.Count}");
         }
     }
 }

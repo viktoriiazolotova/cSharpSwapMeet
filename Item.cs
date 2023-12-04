@@ -5,7 +5,7 @@ namespace cSharpSwapMeet
 {
     public abstract class Item
     {
-        public Item(int itemID, string category)
+        protected Item(int itemID, string category)
         {
             ItemID = itemID;
             Category = category;
@@ -17,10 +17,6 @@ namespace cSharpSwapMeet
         public override string ToString()
         {
             return $"This item with ID {ItemID} belongs to the category of {Category}";
-        }
-        public static void ItemMethod()
-        {
-            Console.WriteLine("This is inside of Item class");
         }
     }
 }
