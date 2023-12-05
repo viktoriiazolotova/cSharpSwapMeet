@@ -7,10 +7,14 @@ namespace cSharpSwapMeet
         static void Main(string[] args)
         {
             // Console.WriteLine("Hello, World!");
+            //create vendor withput inventory
+            // var vendor1 = new Vendor("Cool Stuff");
 
-            var vendor1 = new Vendor("Cool Stuff");
             //to check what is printed for vendor To String Method.
-            Console.WriteLine(vendor1);
+            // Console.WriteLine(vendor1.VendorName);
+            // vendor1.VendorName = "Anna";
+            // Console.WriteLine(vendor1.VendorName);
+            // Console.WriteLine(vendor1);
 
             Decor vase = new Decor(1);
             Decor wallPicture = new Decor(2);
@@ -20,13 +24,15 @@ namespace cSharpSwapMeet
             Clothing dress = new Clothing(6);
 
             //adding item by using method Add 
-            vendor1.AddItem(vase);
-            vendor1.AddItem(wallPicture);
-            vendor1.AddItem(wallMirror);
-            vendor1.AddItem(radio);
-            vendor1.AddItem(dress);
+            // vendor1.AddItem(vase);
+            // vendor1.AddItem(wallPicture);
+            // vendor1.AddItem(wallMirror);
+            // vendor1.AddItem(radio);
+            // vendor1.AddItem(dress);
 
 
+            List<Item> initialInventory = new List<Item> { vase, wallPicture, wallMirror, radio, dress };
+            var vendor1 = new Vendor("Jonh", initialInventory);
             //get categoris of items in inventory
             foreach (var item in vendor1.Inventory)
             {
@@ -43,7 +49,7 @@ namespace cSharpSwapMeet
 
             Console.WriteLine(vendor1.CheckItemAvailability(vase)); //true
             Console.WriteLine(vendor1.CheckItemAvailability(table)); //false
-            Console.WriteLine(vendor1.RemoveItem(vase));//true
+            Console.WriteLine(vendor1.RemoveItem(new Decor(1)));//true
             Console.WriteLine(vendor1.RemoveItem(table));//false
 
             //to verify that vase is not longer available

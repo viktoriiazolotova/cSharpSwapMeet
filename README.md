@@ -10,6 +10,10 @@
 7. DONE: Set up {Get; set}  for itemID, category for Item and to set up {get, set} for  name for vendor
 
 
+## Enhancenment, considerations
+1. Update Remove method to pass int ItemID instead of Item item.
+2. The same as above for checking availability method.
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
@@ -49,11 +53,6 @@ In Wave 1 we will create the `Vendor` class.
 - Inside this module, there is a class named `Vendor`
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
 - When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
-
-//List<Item> inventory = new Item {radio, p2};
-//Item radio = new Item();
-
-
 
 - Every instance of `Vendor` has an instance method named `add`, which takes in one item
 - This method adds the item to the `inventory`
@@ -96,7 +95,7 @@ The remaining tests in wave 3 imply:
     3. an instance of an `Item` (`their_item`), representing the item the friend `Vendor` plans to give
   - It removes the `my_item` from this `Vendor`'s inventory, and adds it to the friend's inventory
   - It removes the `their_item` from the other `Vendor`'s inventory, and adds it to this `Vendor`'s inventory
-  - It returns `True`
+  - It returns `True` //return string of comfirmating
   - If this `Vendor`'s inventory doesn't contain `my_item` or the friend's inventory doesn't contain `their_item`, the method returns `False`
 
 ### Wave 4

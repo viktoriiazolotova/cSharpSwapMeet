@@ -14,6 +14,7 @@ namespace cSharpSwapMeet
         public int ItemID { get; set; }
         public string Category { get; set; }
 
+
         public override string ToString()
         {
             return $"This item with ID {ItemID} belongs to the category of {Category}";

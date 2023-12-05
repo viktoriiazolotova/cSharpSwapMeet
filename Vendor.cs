@@ -5,22 +5,26 @@ namespace cSharpSwapMeet
 {
     public class Vendor
     {
-        public Vendor(string vendorName)
+        public Vendor(string vendorName, List<Item>? inventory = null)
         {
             VendorName = vendorName;
+            Inventory = inventory ?? new List<Item>();
         }
         public string VendorName { get; set; }
+        public List<Item> Inventory { get; set; } = [];
 
         public override string ToString()
         {
             return $"Vendor name is: {VendorName}.";
         }
-        public List<Item> Inventory { get; set; } = new();
-        public void AddItem(Item item)
+
+
+        public bool AddItem(Item item)
         {
             Inventory.Add(item);
-            //return item;
+            return true;
         }
+
         public bool CheckItemAvailability(Item item)
         {
             foreach (var inventoryItem in Inventory)
@@ -42,8 +46,6 @@ namespace cSharpSwapMeet
         //     return Inventory.Any(inventoryItem => item.ItemID == inventoryItem.ItemID);
         // }
 
-        //this method can only return one of data - Item or Bool, 
-        //needs to think how to improve
         public bool RemoveItem(Item item)
         {
             if (CheckItemAvailability(item))
@@ -54,14 +56,6 @@ namespace cSharpSwapMeet
             return false;
         }
 
-        //other way - to discuss
-        // public void RemoveItem(Item item)
-        // {
-        //     if (CheckItemAvailability(item))
-        //     {
-        //         Inventory.Remove(item);
-        //     }
-        // }
         public List<Item> GetItemsByCategory(string category)
         {
             List<Item> ItemsByCategory = new();
@@ -80,6 +74,8 @@ namespace cSharpSwapMeet
         // {
         //     return Inventory.Where(item => item.Category == category).ToList();
         // }
+
+
 
     }
 }
