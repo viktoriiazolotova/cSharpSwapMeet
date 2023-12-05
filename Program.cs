@@ -68,6 +68,26 @@ namespace cSharpSwapMeet
             List<Item> newItems = [];
             newItems = vendor1.GetItemsByCategory("Decor");
             Console.WriteLine($"Length of new list is: {newItems.Count}");
+
+
+            //to check swiping items:
+            var vendorFriend = new Vendor("Friend");
+            var mugFriend = new Decor(8);
+            vendorFriend.Inventory.Add(mugFriend);
+            Console.WriteLine("*****************");
+
+            // Console.Write(vendor1.SwapItems(vendorFriend, radio, mugFriend));
+            Console.Write(vendor1.SwapFirstItems(vendorFriend));
+            foreach (var item in vendor1.Inventory)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("*****************");
+            Console.WriteLine($"\nThis is the first item:{vendor1.Inventory[0]} in {vendor1.VendorName}");
+            Console.WriteLine($"\nThis is the first item:{vendorFriend.Inventory[0]} in {vendorFriend.VendorName}");
+
+
+
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.VisualBasic;
+using NUnit.Framework.Interfaces;
 
 namespace cSharpSwapMeet
 {
@@ -74,8 +75,34 @@ namespace cSharpSwapMeet
         // {
         //     return Inventory.Where(item => item.Category == category).ToList();
         // }
+        public string SwapItems(Vendor swappedVendor, Item myItem, Item theirItem)
+        {
+            string result = "";
+            if (swappedVendor.RemoveItem(theirItem) && this.RemoveItem(myItem))
+            {
+                this.AddItem(theirItem);
+                swappedVendor.AddItem(myItem);
+                result = "You successfully swapped items";
+                return result;
 
+            };
+            result = "Swapping items was unsuccessful, please check inventory";
+            return result;
+        }
 
+        public string SwapFirstItems(Vendor swappedVendor)
+        {
+            string result = "";
+            if (Inventory.Count == 0 || swappedVendor.Inventory.Count == 0)
+            {
+                result = "Swapping items was unsuccessful, one of the vendor does not have inventory";
+            }
+            else
+            {
+                result = this.SwapItems(swappedVendor, Inventory[0], swappedVendor.Inventory[0]);
 
+            }
+            return result;
+        }
     }
 }
