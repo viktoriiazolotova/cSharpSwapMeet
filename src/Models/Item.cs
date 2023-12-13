@@ -6,7 +6,7 @@ namespace cSharpSwapMeet
 {
     public abstract class Item
     {
-        protected Item(int itemID, string category, int condition = 0)
+        protected Item(int itemID, string category, double condition = 0.0)
         {
             ItemID = itemID;
             Category = category;
@@ -16,7 +16,7 @@ namespace cSharpSwapMeet
         public int ItemID { get; set; }
         public string Category { get; set; }
 
-        public int Condition { get; set; }
+        public double Condition { get; set; }
 
 
         public override string ToString()

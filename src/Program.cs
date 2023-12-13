@@ -22,9 +22,10 @@ namespace cSharpSwapMeet
             Decor wallMirror = new Decor(3);
             Decor table = new Decor(4);
             Electronics radio = new Electronics(5);
-            ///needs to pass 3 arguments? how to deal with decimals?
-            Clothing dress = new Clothing(6, "Clothing", 4);
+
+            Clothing dress = new Clothing(itemID: 6, condition: 4.2);
             Console.WriteLine("dress condition: " + dress.GetConditionDescription());
+            Console.WriteLine("dress condition: " + dress.Condition);
 
             //adding item by using method Add 
             // vendor1.AddItem(vase);
