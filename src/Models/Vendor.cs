@@ -1,4 +1,5 @@
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
 using Microsoft.VisualBasic;
 
 
@@ -103,6 +104,53 @@ namespace cSharpSwapMeet
 
             }
             return result;
+        }
+
+        public Item? GetBestByCategory(string category)
+        {
+            /*
+            Returns the best first item by category or null if there are no items in that category.
+            */
+
+            // Check if the vendor has any items
+            if (Inventory.Count == 0)
+            {
+                return null;
+            }
+
+            List<Item> itemsByCategory = GetItemsByCategory(category);
+
+            if (itemsByCategory.Count == 0)
+            {
+                return null;
+            }
+
+            Item bestItem = itemsByCategory[0];
+            foreach (var item in itemsByCategory)
+            {
+                if (item.Condition > bestItem.Condition)
+                {
+                    bestItem = item;
+                }
+            }
+            return bestItem;
+            // Use LINQ to find the item with the maximum condition
+            // Item? bestItem = itemsByCategory.OrderByDescending(item => item.Condition).FirstOrDefault();
+            // return bestItem;
+        }
+
+        public bool SwapBestByCategory(Vendor otherVendor, string myPriority, string theirPriority)
+        {
+            Item? myBestItemByCategory = GetBestByCategory(theirPriority);
+            Item? theirBestItemByCategory = GetBestByCategory(myPriority);
+
+            if (myBestItemByCategory != null && theirBestItemByCategory != null)
+            {
+                SwapItems(otherVendor, myBestItemByCategory, theirBestItemByCategory);
+                return true;
+            }
+
+            return false;
         }
     }
 }

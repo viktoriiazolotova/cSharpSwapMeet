@@ -244,5 +244,38 @@ namespace cSharpSwapMeetTests
             Assert.DoesNotContain(item1, vendor2.Inventory);
             Assert.DoesNotContain(item2, vendor2.Inventory);
         }
+
+        [Fact]
+        public void GetBestByCategory_ShouldReturnBestItemByCategory()
+        {
+            // Arrange
+            var vendor = new Vendor("Test Vendor");
+            var decor1 = new Decor(1, condition: 4.2);
+            var decor2 = new Decor(2, condition: 3.0);
+            var decor3 = new Decor(3, condition: 4.2);
+            var clothing1 = new Clothing(4, condition: 2.8);
+            var clothing2 = new Clothing(5, condition: 3.7);
+
+            vendor.AddItem(decor1);
+            vendor.AddItem(decor2);
+            vendor.AddItem(decor3);
+            vendor.AddItem(clothing1);
+            vendor.AddItem(clothing2);
+
+            // Act
+            var bestDecor = vendor.GetBestByCategory("Decor");
+            var bestClothing = vendor.GetBestByCategory("Clothing");
+            var bestNonExistingCategory = vendor.GetBestByCategory("Electronics");
+
+            // Assert
+            //should return first item decor1 since it is listed firt
+            Assert.NotNull(bestDecor);
+            Assert.Equal(decor1, bestDecor);
+
+            Assert.NotNull(bestClothing);
+            Assert.Equal(clothing2, bestClothing);
+
+            Assert.Null(bestNonExistingCategory);
+        }
     }
 }
