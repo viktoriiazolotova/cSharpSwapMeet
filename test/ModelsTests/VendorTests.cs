@@ -16,6 +16,11 @@ namespace cSharpSwapMeetTests
             Assert.Equal(vendorName, vendor.VendorName);
             Assert.NotNull(vendor.Inventory);
             Assert.Empty(vendor.Inventory);
+
+            //testing set method
+            vendor.VendorName = "Mike";
+            Assert.Equal("Mike", vendor.VendorName);
+
         }
 
         [Fact]

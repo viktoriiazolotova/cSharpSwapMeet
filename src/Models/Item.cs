@@ -28,7 +28,7 @@ namespace cSharpSwapMeet
         {
             if (Condition <= 1)
             {
-                return "Heavily Used";
+                return "Heavily used";
             }
             else if (Condition <= 2)
             {
