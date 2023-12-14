@@ -277,5 +277,68 @@ namespace cSharpSwapMeetTests
 
             Assert.Null(bestNonExistingCategory);
         }
+        [Fact]
+        public void SwapBestByCategory_ShouldReturnTrueWhenItemsAreSwapped()
+        {
+            var vendor1 = new Vendor("Vendor1");
+            var vendor2 = new Vendor("Vendor2");
+
+            var item1 = new Decor(1, condition: 3);
+            var item2 = new Decor(2, condition: 4);
+            var item3 = new Decor(3, condition: 5.5);
+            var item4 = new Clothing(4, condition: 3);
+
+            vendor1.AddItem(item1);
+            vendor1.AddItem(item2);
+            vendor1.AddItem(item3);
+            vendor2.AddItem(item4);
+
+            Assert.True(vendor1.CheckItemAvailability(item1));
+            Assert.True(vendor1.CheckItemAvailability(item2));
+            Assert.True(vendor1.CheckItemAvailability(item3));
+            Assert.True(vendor2.CheckItemAvailability(item4));
+
+            var bestDecor = vendor1.GetBestByCategory("Decor");
+            var bestClothing = vendor2.GetBestByCategory("Clothing");
+
+            Assert.NotNull(bestDecor);
+            Assert.Equal(item3, bestDecor);
+            Assert.NotNull(bestClothing);
+            Assert.Equal(item4, bestClothing);
+
+            var result = vendor1.SwapBestByCategory(vendor2, "Clothing", "Decor");
+
+            Assert.True(result);
+            Assert.Contains(item4, vendor1.Inventory);
+            Assert.Contains(item3, vendor2.Inventory);
+        }
+
+        [Fact]
+        public void SwapBestByCategory_ShouldReturnFalseWhenNoItemsToSwap()
+        {
+            // Arrange
+            var vendor1 = new Vendor("Vendor1");
+            var vendor2 = new Vendor("Vendor2");
+            var item1 = new Decor(1, condition: 3);
+            var item2 = new Decor(2, condition: 4);
+
+            vendor1.AddItem(item1);
+            vendor1.AddItem(item2);
+
+            Assert.True(vendor1.CheckItemAvailability(item1));
+            Assert.True(vendor1.CheckItemAvailability(item2));
+            Assert.Empty(vendor2.Inventory);
+
+            // Act
+            var result = vendor1.SwapBestByCategory(vendor2, "Clothing", "Decor");
+
+            // Assert
+            Assert.False(result);
+            // // Ensure that inventories remain unchanged
+            Assert.True(vendor1.CheckItemAvailability(item1));
+            Assert.True(vendor1.CheckItemAvailability(item2));
+            Assert.Equal(2, vendor1.Inventory.Count);
+            Assert.Empty(vendor2.Inventory);
+        }
     }
 }

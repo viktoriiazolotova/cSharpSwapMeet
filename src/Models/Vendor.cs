@@ -139,14 +139,14 @@ namespace cSharpSwapMeet
             // return bestItem;
         }
 
-        public bool SwapBestByCategory(Vendor otherVendor, string myPriority, string theirPriority)
+        public bool SwapBestByCategory(Vendor swappedVendor, string myPriority, string theirPriority)
         {
-            Item? myBestItemByCategory = GetBestByCategory(theirPriority);
-            Item? theirBestItemByCategory = GetBestByCategory(myPriority);
+            Item? myBestItemByCategory = this.GetBestByCategory(theirPriority);
+            Item? theirBestItemByCategory = swappedVendor.GetBestByCategory(myPriority);
 
             if (myBestItemByCategory != null && theirBestItemByCategory != null)
             {
-                SwapItems(otherVendor, myBestItemByCategory, theirBestItemByCategory);
+                SwapItems(swappedVendor, myBestItemByCategory, theirBestItemByCategory);
                 return true;
             }
 
