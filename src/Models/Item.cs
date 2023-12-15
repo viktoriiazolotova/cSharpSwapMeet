@@ -6,14 +6,22 @@ namespace cSharpSwapMeet
 {
     public abstract class Item
     {
-        protected Item(int itemID, string category, double condition = 0.0)
+        private static int itemCount = 0;
+        private static readonly object lockObject = new object();
+        protected Item(string category, double condition = 0.0)
         {
-            ItemID = itemID;
+            // ItemID = itemID;
+            lock (lockObject)
+            {
+                ItemID = ++itemCount;
+            }
+
             Category = category;
             Condition = condition;
         }
 
-        public int ItemID { get; set; }
+        public int ItemID { get; private set; }
+
         public string Category { get; set; }
 
         public double Condition { get; set; }
@@ -47,6 +55,7 @@ namespace cSharpSwapMeet
                 return "Excellent condition";
             }
         }
+
 
 
     }

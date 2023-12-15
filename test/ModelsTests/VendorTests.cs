@@ -41,7 +41,6 @@ namespace cSharpSwapMeetTests
             var item2 = new Electronics(2);
             var item3 = new Clothing(3);
             var inventory = new List<Item> { item1, item2, item3 };
-
             var vendor2 = new Vendor(vendorName2, inventory);
 
             Assert.Equal(vendorName2, vendor2.VendorName);
