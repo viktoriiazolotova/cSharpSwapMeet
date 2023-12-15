@@ -37,9 +37,9 @@ namespace cSharpSwapMeetTests
         public void VendorConstructor_ShouldInitializeVendorInstanceWithItems()
         {
             string vendorName2 = "Alice";
-            var item1 = new Decor(1);
-            var item2 = new Electronics(2);
-            var item3 = new Clothing(3);
+            var item1 = new Decor();
+            var item2 = new Electronics();
+            var item3 = new Clothing();
             var inventory = new List<Item> { item1, item2, item3 };
             var vendor2 = new Vendor(vendorName2, inventory);
 
@@ -53,8 +53,8 @@ namespace cSharpSwapMeetTests
         {
             // Arrange
             var vendor = new Vendor("Jonh Doe");
-            var item1 = new Clothing(1);
-            var item2 = new Clothing(2);
+            var item1 = new Clothing();
+            var item2 = new Clothing();
 
             // Act
             bool result = vendor.AddItem(item1);
@@ -70,7 +70,7 @@ namespace cSharpSwapMeetTests
         {
             // Arrange
             var vendor = new Vendor("Jonh Doe");
-            var item1 = new Decor(3);
+            var item1 = new Decor();
             vendor.AddItem(item1);
 
             // Act
@@ -85,7 +85,7 @@ namespace cSharpSwapMeetTests
         {
             // Arrange
             var vendor = new Vendor("Jonh Doe");
-            var item1 = new Decor(4);
+            var item1 = new Decor();
 
             // Act
             bool result = vendor.CheckItemAvailability(item1);
@@ -99,7 +99,7 @@ namespace cSharpSwapMeetTests
         {
             // Arrange
             var vendor = new Vendor("Jonh Doe");
-            var item1 = new Decor(1);
+            var item1 = new Decor();
             vendor.AddItem(item1);
 
 
@@ -116,7 +116,7 @@ namespace cSharpSwapMeetTests
         {
             // Arrange
             var vendor = new Vendor("Jonh Doe");
-            var item1 = new Decor(1);
+            var item1 = new Decor();
 
             // Act
             var result = vendor.RemoveItem(item1);
@@ -131,9 +131,9 @@ namespace cSharpSwapMeetTests
         {
             // Arrange
             var vendor = new Vendor("Jonh Doe");
-            var item1 = new Decor(1);
-            var item2 = new Clothing(4);
-            var item3 = new Clothing(5);
+            var item1 = new Decor();
+            var item2 = new Clothing();
+            var item3 = new Clothing();
 
             vendor.AddItem(item1);
             vendor.AddItem(item2);
@@ -155,8 +155,8 @@ namespace cSharpSwapMeetTests
             // Arrange
             var vendor1 = new Vendor("Vendor1");
             var vendor2 = new Vendor("Vendor2");
-            var item1 = new Decor(1);
-            var item2 = new Clothing(2);
+            var item1 = new Decor();
+            var item2 = new Clothing();
             vendor1.AddItem(item1);
             vendor2.AddItem(item2);
 
@@ -177,8 +177,8 @@ namespace cSharpSwapMeetTests
             // Arrange
             var vendor1 = new Vendor("Vendor1");
             var vendor2 = new Vendor("Vendor2");
-            var item1 = new Decor(1);
-            var item2 = new Clothing(2);
+            var item1 = new Decor();
+            var item2 = new Clothing();
             vendor1.AddItem(item1);
 
             // Act
@@ -197,10 +197,10 @@ namespace cSharpSwapMeetTests
             // Arrange
             var vendor1 = new Vendor("Vendor1");
             var vendor2 = new Vendor("Vendor2");
-            var item1 = new Decor(1);
-            var item2 = new Clothing(2);
-            var item3 = new Clothing(3);
-            var item4 = new Electronics(4);
+            var item1 = new Decor();
+            var item2 = new Clothing();
+            var item3 = new Clothing();
+            var item4 = new Electronics();
             vendor1.AddItem(item1);
             vendor1.AddItem(item2);
             vendor2.AddItem(item3);
@@ -225,8 +225,8 @@ namespace cSharpSwapMeetTests
             // Arrange
             var vendor1 = new Vendor("Vendor1");
             var vendor2 = new Vendor("Vendor2");
-            var item1 = new Decor(1);
-            var item2 = new Clothing(2);
+            var item1 = new Decor();
+            var item2 = new Clothing();
 
             vendor1.AddItem(item1);
             vendor1.AddItem(item2);
@@ -249,11 +249,11 @@ namespace cSharpSwapMeetTests
         {
             // Arrange
             var vendor = new Vendor("Test Vendor");
-            var decor1 = new Decor(1, condition: 4.2);
-            var decor2 = new Decor(2, condition: 3.0);
-            var decor3 = new Decor(3, condition: 4.2);
-            var clothing1 = new Clothing(4, condition: 2.8);
-            var clothing2 = new Clothing(5, condition: 3.7);
+            var decor1 = new Decor(condition: 4.2);
+            var decor2 = new Decor(condition: 3.0);
+            var decor3 = new Decor(condition: 4.2);
+            var clothing1 = new Clothing(condition: 2.8);
+            var clothing2 = new Clothing(condition: 3.7);
 
             vendor.AddItem(decor1);
             vendor.AddItem(decor2);
@@ -282,10 +282,10 @@ namespace cSharpSwapMeetTests
             var vendor1 = new Vendor("Vendor1");
             var vendor2 = new Vendor("Vendor2");
 
-            var item1 = new Decor(1, condition: 3);
-            var item2 = new Decor(2, condition: 4);
-            var item3 = new Decor(3, condition: 5.5);
-            var item4 = new Clothing(4, condition: 3);
+            var item1 = new Decor(condition: 3);
+            var item2 = new Decor(condition: 4);
+            var item3 = new Decor(condition: 5.5);
+            var item4 = new Clothing(condition: 3);
 
             vendor1.AddItem(item1);
             vendor1.AddItem(item2);
@@ -318,8 +318,8 @@ namespace cSharpSwapMeetTests
             // Arrange
             var vendor1 = new Vendor("Vendor1");
             var vendor2 = new Vendor("Vendor2");
-            var item1 = new Decor(1, condition: 3);
-            var item2 = new Decor(2, condition: 4);
+            var item1 = new Decor(condition: 3);
+            var item2 = new Decor(condition: 4);
 
             vendor1.AddItem(item1);
             vendor1.AddItem(item2);
