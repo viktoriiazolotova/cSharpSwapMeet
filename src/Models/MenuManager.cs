@@ -33,7 +33,7 @@ namespace cSharpSwapMeet
                 Console.WriteLine("5. Add an item to the vendor's inventory");
                 Console.WriteLine("6. Remove an item from the vendor's inventory");
                 Console.WriteLine("7. Get all items by category for the specific vendor");
-                Console.WriteLine("8. Check item availability");
+                Console.WriteLine("8. Check item availability in vendor inventory");
                 Console.WriteLine("9. Get best item by category for a vendor");
                 Console.WriteLine("10. Swap specific items between vendors");
                 Console.WriteLine("11. Swap best items between vendors");
@@ -49,15 +49,12 @@ namespace cSharpSwapMeet
                         ServiceManager.ListAllVendors(vendors);
                         Console.WriteLine("This feature in the progress...");
                         break;
-
                     case "2":
                         Console.WriteLine("This feature in the progress...");
                         break;
-
                     case "3":
                         Console.WriteLine("This feature in the progress...");
                         break;
-
                     case "4":
                         Console.WriteLine("This feature in the progress...");
                         break;
