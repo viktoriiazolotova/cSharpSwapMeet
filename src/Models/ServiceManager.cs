@@ -5,8 +5,9 @@ using System.Linq;
 
 namespace cSharpSwapMeet
 {
-    public class VendorService
+    public class ServiceManager
     {
+        //method in progress
         public static void ListAllVendors(List<Vendor> vendors)
         {
             Console.WriteLine("\nList of all vendors:");
