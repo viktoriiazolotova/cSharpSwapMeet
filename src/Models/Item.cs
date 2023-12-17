@@ -8,12 +8,19 @@ namespace cSharpSwapMeet
     {
         private static int s_itemCount = 0;
         private static readonly object lockObject = new object();
+        protected Item(int itemID, string category, double condition = 0.0)
+        {
+            ItemID = itemID;
+            Category = category;
+            Condition = condition;
+        }
         protected Item(string category, double condition = 0.0)
         {
-            // ItemID = itemID;
-            lock (lockObject)
             {
-                ItemID = ++s_itemCount;
+                lock (lockObject)
+                {
+                    ItemID = ++s_itemCount;
+                }
             }
 
             Category = category;
