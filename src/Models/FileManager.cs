@@ -22,7 +22,7 @@ namespace cSharpSwapMeet
                     string? line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        // Assuming each line has the format: VendorName|ItemId|Category|Condition|...
+
                         string[] parts = line.Split('|');
 
                         // Parse the data and create Vendor and Item instances
@@ -69,6 +69,37 @@ namespace cSharpSwapMeet
 
             return vendors;
         }
+        //not tested yet
+        public static void AddOrUpdateVendorToFile(Vendor vendorToAdd, string filePath = DefaultFilePath)
+        {
+            try
+            {
+                List<Vendor> vendorsFromFile = ReadVendorsFromFile(filePath);
 
+                vendorsFromFile.Add(vendorToAdd);
+
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (var vendor in vendorsFromFile)
+                    {
+                        // Write the vendor's data to the file
+                        writer.Write($"{vendor.VendorName}");
+
+                        foreach (var item in vendor.Inventory)
+                        {
+                            writer.Write($"|{item.ItemID}|{item.Category}|{item.Condition}");
+                        }
+
+                        writer.WriteLine();
+                    }
+                }
+
+                Console.WriteLine("New vendor added to the file successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
     }
 }

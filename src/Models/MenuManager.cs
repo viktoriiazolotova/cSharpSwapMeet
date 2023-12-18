@@ -3,18 +3,6 @@ namespace cSharpSwapMeet
 {
     public class MenuManager
     {
-        //method to test before having FileManager
-        // private static List<Vendor> GetSampleVendors()
-        // {
-        //     // Create and return a list of vendors with items in their inventory
-
-        //     Vendor vendor1 = new Vendor("Vendor1", new List<Item> { new Decor(), new Clothing() });
-        //     Vendor vendor2 = new Vendor("Vendor2", new List<Item> { new Electronics(), new Clothing(), new Decor() });
-
-        //     List<Vendor> vendors = new List<Vendor> { vendor1, vendor2 };
-        //     return vendors;
-
-        // }
         public static void DisplayMenu()
         {
             //this will read from file

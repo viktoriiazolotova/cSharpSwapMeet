@@ -8,10 +8,30 @@ namespace cSharpSwapMeet
     {
         static void Main(string[] args)
         {
-            //FileManager.ReadVendorsFromFile("inventory.txt");
+            // FileManager.ReadVendorsFromFile("inventory.txt");
             MenuManager.DisplayMenu();
 
+            // var testVendor = new Vendor("John");
+            // var item1 = new Decor();
+            // testVendor.AddItem(item1);
+            // // FileManager.AddNewVendorToFile(testVendor, "inventory.txt");
 
+            // FileManager.AddOrUpdateVendorToFile(testVendor, "inventory.txt");
+
+
+            // var testJonh = new Vendor("John1");
+            // var decor1 = new Decor();
+            // testJonh.AddItem(decor1);
+            // var radio1 = new Electronics(condition: 5.0);
+            // testJonh.AddItem(radio1);
+
+
+            // FileManager.AddOrUpdateVendorToFile(testJonh, "inventory.txt");
+            // var vika = new Vendor("Vika");
+            // var mug = new Decor(condition: 4.0);
+            // vika.AddItem(mug);
+            // FileManager.AddOrUpdateVendorToFile(vika, "inventory.txt");
+            // FileManager.AddOrUpdateVendorToFile(new Vendor("Vendor1"), "inventory.txt");
             // // Auto-generated itemID
             // Decor item1 = new Decor();
             // Console.WriteLine(item1.ItemID);  // Output: 1
