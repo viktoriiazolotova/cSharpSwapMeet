@@ -6,22 +6,23 @@ namespace cSharpSwapMeet.Tests
     public class DecorTests
     {
 
-        //does not work yet
-        // [Fact]
-        // public void ConstructorWithoutItemId_ShouldAutoGenerateItemId()
-        // {
-        //     // Arrange & Act
+        [Fact]
+        public void ConstructorWithoutItemId_ShouldAutoGenerateRandomItemId()
+        {
+            // Arrange & Act
+            Decor decor1 = new Decor();
+            Decor decor2 = new Decor();
+            Decor decor3 = new Decor();
 
-        //     Decor decor1 = new Decor();
-        //     Decor decor2 = new Decor();
-        //     Decor decor3 = new Decor();
+            // Assert
+            Assert.NotEqual(decor1.ItemID, decor2.ItemID);
+            Assert.NotEqual(decor1.ItemID, decor3.ItemID);
+            Assert.NotEqual(decor2.ItemID, decor3.ItemID);
 
-        //     // Assert
-
-        //     Assert.Equal(1, decor1.ItemID);
-        //     Assert.Equal(2, decor2.ItemID);
-        //     Assert.Equal(3, decor3.ItemID);
-        // }
+            Assert.InRange(decor1.ItemID, 1, 1000000);
+            Assert.InRange(decor2.ItemID, 1, 1000000);
+            Assert.InRange(decor3.ItemID, 1, 1000000);
+        }
 
         [Fact]
         public void ConstructorWithExplicitItemId_ShouldUseSpecifiedItemId()
@@ -53,7 +54,6 @@ namespace cSharpSwapMeet.Tests
 
             // Assert
             Assert.Equal(specifiedCondition, decor2.Condition);
-            //Console.WriteLine(decor2.ItemID);
         }
     }
 }

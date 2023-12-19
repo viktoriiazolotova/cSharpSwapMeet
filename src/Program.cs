@@ -11,11 +11,7 @@ namespace cSharpSwapMeet
             MenuManager newMenuManager = new MenuManager();
             newMenuManager.RunMenu();
 
-            // var testVendor = new Vendor("Test");
-            // var item1 = new Decor();
-            // testVendor.AddItem(item1);
-            // ServiceManager newServiceManager = new ServiceManager();
-            // newServiceManager.addVendor(testVendor);
+
 
 
             // FileManager.AddOrUpdateVendorToFile(testVendor, "inventory.txt");
@@ -32,7 +28,13 @@ namespace cSharpSwapMeet
 
             // FileManager.AddOrUpdateVendorToFile(testJonh, "inventory.txt");
             // var vika = new Vendor("Vika");
-            // var mug = new Decor(condition: 4.0);
+            // var mug = new Decor(condition: 4.0);var testVendor = new Vendor("Test");
+            // var item3 = new Decor();
+            // testVendor.AddItem(item3);
+            // var item4 = new Decor();
+            // testVendor.AddItem(item4);
+            // ServiceManager newServiceManager = new ServiceManager();
+            // newServiceManager.addVendor(testVendor);
             // vika.AddItem(mug);
             // FileManager.AddOrUpdateVendorToFile(vika, "inventory.txt");
             // FileManager.AddOrUpdateVendorToFile(new Vendor("Vendor1"), "inventory.txt");
@@ -44,7 +46,7 @@ namespace cSharpSwapMeet
             // Console.WriteLine(item4.ItemID);
             // Console.WriteLine(item4.Condition);  // Output: 2
 
-            // // Explicitly specified itemID
+            // // // Explicitly specified itemID
             // Decor item5 = new Decor(6, condition: 3.0);
             // Console.WriteLine(item5.ItemID);  // Output: 6
             // Console.WriteLine(item5.Condition);  // Output: 6

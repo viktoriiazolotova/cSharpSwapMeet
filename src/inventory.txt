@@ -3,12 +3,4 @@ Vendor2|4|Electronics|3|5|Decor|2|6|Clothing|4.5
 Vendor3|7|Clothing|3.5|8|Decor|1.5|9|Electronics|4.2
 Vendor4|10|Decor|2.8|11|Clothing|4|12|Electronics|3.8
 Vendor5|13|Electronics|0|14|Decor|3.2|15|Clothing|2|16|Clothing|2.5
-John|1|Decor|0
-John|1|Decor|0
-John|1|Decor|0
-John|1|Decor|0
-John|1|Decor|0
-John|1|Decor|0|2|Electronics|5
-John1|1|Decor|0|2|Electronics|5
-Vika|1|Decor|4
-Test|1|Decor|0
+Test|561835|Decor|0

@@ -6,7 +6,8 @@ namespace cSharpSwapMeet
 {
     public abstract class Item
     {
-        private static int s_itemCount = 0;
+        // private static int s_itemCount = 0;
+        private static readonly Random random = new Random();
         private static readonly object lockObject = new object();
         protected Item(int itemID, string category, double condition = 0.0)
         {
@@ -19,14 +20,13 @@ namespace cSharpSwapMeet
             {
                 lock (lockObject)
                 {
-                    ItemID = ++s_itemCount;
+                    ItemID = GenerateRandomItemId();
                 }
             }
 
             Category = category;
             Condition = condition;
         }
-
 
         public int ItemID { get; private set; }
         public string Category { get; set; }
@@ -63,7 +63,13 @@ namespace cSharpSwapMeet
             }
         }
 
+        private int GenerateRandomItemId()
+        {
+            const int minId = 1;
+            const int maxId = 1000000;
 
-
+            double randomFactor = random.NextDouble() * (maxId - minId) + minId;
+            return (int)Math.Round(randomFactor);
+        }
     }
 }
