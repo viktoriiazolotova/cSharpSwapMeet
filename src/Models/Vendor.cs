@@ -152,5 +152,12 @@ namespace cSharpSwapMeet
 
             return false;
         }
+        public string GetVendorWithInventory()
+        {
+            string inventoryString = string.Join("", Inventory.Select(item =>
+                $"Category: {item.Category},\titemID: {item.ItemID}, condition: {item.Condition}\n"));
+
+            return $"{VendorName}:\n{inventoryString}";
+        }
     }
 }

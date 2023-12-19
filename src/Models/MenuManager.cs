@@ -3,10 +3,9 @@ namespace cSharpSwapMeet
 {
     public class MenuManager
     {
-        public static void DisplayMenu()
+        public void DisplayMenu()
         {
-            //this will read from file
-            List<Vendor> vendors = FileManager.ReadVendorsFromFile();
+            ServiceManager newInstanceServiceManager = new ServiceManager();
             //rewrite the loop to having the do-while structure similar to pet app
             while (true)
             {
@@ -34,7 +33,8 @@ namespace cSharpSwapMeet
                 switch (choice)
                 {
                     case "1":
-                        ServiceManager.ListAllVendors(vendors);
+
+                        newInstanceServiceManager.DisplayAllVendorsAndInventory();
                         break;
                     case "2":
                         Console.WriteLine("This feature in the progress...");

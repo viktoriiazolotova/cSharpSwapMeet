@@ -11,3 +11,4 @@ John|1|Decor|0
 John|1|Decor|0|2|Electronics|5
 John1|1|Decor|0|2|Electronics|5
 Vika|1|Decor|4
+Test|1|Decor|0

@@ -1,27 +1,38 @@
-// VendorService.cs
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace cSharpSwapMeet
 {
     public class ServiceManager
     {
-
-        public static void ListAllVendors(List<Vendor> vendors)
+        public ServiceManager()
         {
-            Console.WriteLine("\nList of all vendors:");
+            Vendors = FileManager.ReadVendorsFromFile();
+        }
+        private List<Vendor> Vendors { get; }
 
-            foreach (var vendor in vendors)
+        public void addVendor(Vendor vendor)
+        {
+            Vendors.Add(vendor);
+            FileManager.saveInventoryToFile(Vendors);
+        }
+
+        public List<string> ListAllVendorsAndInventory()
+        {
+            List<string> output = [];
+            foreach (var vendor in Vendors)
             {
-                Console.WriteLine($"- {vendor.VendorName}");
-                foreach (var item in vendor.Inventory)
-                {
-                    Console.WriteLine($"\n{item.ToString()}");
-                    Console.WriteLine($"\nItem Id#: {item.ItemID}");
-                    Console.WriteLine($"Item category: {item.Category}");
-                    Console.WriteLine($"Item condition: {item.Condition}\n");
-                }
+                output.Add(vendor.GetVendorWithInventory());
+            }
+            return output;
+        }
+
+        public void DisplayAllVendorsAndInventory()
+        {
+            List<string> output = ListAllVendorsAndInventory();
+            foreach (var line in output)
+            {
+                Console.WriteLine(line);
             }
         }
     }
