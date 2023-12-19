@@ -21,7 +21,6 @@ namespace cSharpSwapMeet
                         newInstanceServiceManager.DisplayAllVendorsAndInventory();
                         break;
                     case "2":
-                        Console.WriteLine("This feature is in progress...");
                         newInstanceServiceManager.AddVendorAndInventory();
                         break;
                     case "3":
@@ -52,9 +51,6 @@ namespace cSharpSwapMeet
                         Console.WriteLine("This feature is in progress...");
                         break;
                     case "12":
-                        Console.WriteLine("This feature is in progress...");
-                        break;
-                    case "13":
                         Console.WriteLine("Exiting the program. Bye!");
                         displayMenu = false;
                         return;
@@ -85,13 +81,12 @@ namespace cSharpSwapMeet
             Console.WriteLine("9. Get best item by category for a vendor");
             Console.WriteLine("10. Swap specific items between vendors");
             Console.WriteLine("11. Swap best items between vendors");
-            Console.WriteLine("12. Optional - Swap first items between vendors");
-            Console.WriteLine("13. Exit");
+            Console.WriteLine("12. Exit");
         }
 
         private string? GetUserInput()
         {
-            Console.Write("\nEnter your choice (1-13): ");
+            Console.Write("\nEnter your choice (1-12): ");
             return Console.ReadLine();
         }
 
