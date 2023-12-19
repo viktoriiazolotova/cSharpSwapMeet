@@ -4,3 +4,4 @@ Vendor3|7|Clothing|3.5|8|Decor|1.5|9|Electronics|4.2
 Vendor4|10|Decor|2.8|11|Clothing|4|12|Electronics|3.8
 Vendor5|13|Electronics|0|14|Decor|3.2|15|Clothing|2|16|Clothing|2.5
 Test|561835|Decor|0
+Ihor|436406|Decor|4

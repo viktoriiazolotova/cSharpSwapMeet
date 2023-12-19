@@ -12,11 +12,6 @@ namespace cSharpSwapMeet
             newMenuManager.RunMenu();
 
 
-
-
-            // FileManager.AddOrUpdateVendorToFile(testVendor, "inventory.txt");
-
-
             // var testJonh = new Vendor("John1");
             // // var decor1 = new Decor();
             // // testJonh.AddItem(decor1);

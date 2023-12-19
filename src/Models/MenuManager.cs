@@ -22,6 +22,7 @@ namespace cSharpSwapMeet
                         break;
                     case "2":
                         Console.WriteLine("This feature is in progress...");
+                        newInstanceServiceManager.AddVendorAndInventory();
                         break;
                     case "3":
                         Console.WriteLine("This feature is in progress...");
