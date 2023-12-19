@@ -9,7 +9,7 @@ namespace cSharpSwapMeet
         static void Main(string[] args)
         {
             MenuManager newMenuManager = new MenuManager();
-            newMenuManager.DisplayMenu();
+            newMenuManager.RunMenu();
 
             // var testVendor = new Vendor("Test");
             // var item1 = new Decor();
