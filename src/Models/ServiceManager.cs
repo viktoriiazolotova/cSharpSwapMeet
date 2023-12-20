@@ -221,5 +221,22 @@ namespace cSharpSwapMeet
             }
         }
 
+        //methods for menu #4
+        public void GetInventoryListingForVendor()
+        {
+            string vendorName = GetExistingVendorNameFromUser();
+            Vendor? vendor = GetVendorByVendorName(vendorName);
+
+            if (vendor != null)
+            {
+                Console.WriteLine(vendor.GetVendorWithInventory());
+            }
+            else
+            {
+                Console.WriteLine("Vendor not found.");
+            }
+        }
+
+
     }
 }
