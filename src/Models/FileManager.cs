@@ -82,8 +82,6 @@ namespace cSharpSwapMeet
                         writer.WriteLine();
                     }
                 }
-
-                Console.WriteLine("New vendor added to the file successfully.");
             }
             catch (Exception ex)
             {

@@ -24,7 +24,7 @@ namespace cSharpSwapMeet
                         newInstanceServiceManager.AddVendorAndInventory();
                         break;
                     case "3":
-                        Console.WriteLine("This feature is in progress...");
+                        newInstanceServiceManager.ChangeVendorNameAndSaveToFile();
                         break;
                     case "4":
                         Console.WriteLine("This feature is in progress...");
@@ -70,8 +70,8 @@ namespace cSharpSwapMeet
 
             Console.WriteLine("Welcome to The Swap Meet application");
             Console.WriteLine("\nMenu:\n");
-            Console.WriteLine("1. List all vendors");
-            Console.WriteLine("2. Add a new vendor");
+            Console.WriteLine("1. List all vendors and their inventory");
+            Console.WriteLine("2. Add a new vendor and their inventory");
             Console.WriteLine("3. Edit a vendor name");
             Console.WriteLine("4. Get inventory listing for the specific vendor");
             Console.WriteLine("5. Add an item to the vendor's inventory");

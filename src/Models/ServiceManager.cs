@@ -16,8 +16,10 @@ namespace cSharpSwapMeet
         {
             Vendors.Add(vendor);
             FileManager.saveInventoryToFile(Vendors);
+            Console.WriteLine("New vendor added to the file successfully.");
         }
 
+        //methods for menu #1
         public List<string> ListAllVendorsAndInventory()
         {
             List<string> output = [];
@@ -37,100 +39,10 @@ namespace cSharpSwapMeet
             }
         }
 
-        // public void AddVendorAndInventory()
-        // {
-        //     Vendor? newVendor = null;
-        //     string? vendorName;
-        //     string? category;
-        //     double condition;
-        //     bool addNewItem = true;
-
-        //     Console.Write("Enter vendor name: ");
-        //     vendorName = Console.ReadLine();
-
-        //     if (string.IsNullOrWhiteSpace(vendorName))
-        //     {
-        //         Console.WriteLine("Vendor name is required. Please try again.");
-        //         return;
-        //     }
-
-        //     newVendor = new Vendor(vendorName);
-
-
-        //     do
-        //     {
-        //         while (true)
-        //         {
-        //             Console.Write("Enter category (Decor, Clothing, Electronics): ");
-        //             category = Console.ReadLine()?.Trim();
-
-        //             if (string.IsNullOrWhiteSpace(category))
-        //             {
-        //                 Console.WriteLine("Category is required. Please try again.");
-        //                 continue;
-        //             }
-
-        //             if (category.Equals("Decor", StringComparison.OrdinalIgnoreCase) ||
-        //                 category.Equals("Clothing", StringComparison.OrdinalIgnoreCase) ||
-        //                 category.Equals("Electronics", StringComparison.OrdinalIgnoreCase))
-        //             {
-        //                 break;
-        //             }
-
-        //             Console.WriteLine("Invalid category. Please enter a valid category.");
-        //         }
-
-        //         while (true)
-        //         {
-        //             Console.Write("Enter condition (0.0 - 5.0): ");
-        //             string? conditionInput = Console.ReadLine();
-
-        //             if (!double.TryParse(conditionInput, out condition) || condition < 0.0 || condition > 5.0)
-        //             {
-        //                 Console.WriteLine("Invalid condition value. Please enter a value between 0.0 and 5.0.");
-        //                 continue;
-        //             }
-
-        //             break;
-        //         }
-        //         Item? newItem = null;
-
-
-        //         switch (category.ToLower())
-        //         {
-        //             case "decor":
-        //                 newItem = new Decor(condition);
-        //                 break;
-        //             case "electronics":
-        //                 newItem = new Electronics(condition);
-        //                 break;
-        //             case "clothing":
-        //                 newItem = new Clothing(condition);
-        //                 break;
-        //         }
-
-        //         if (newItem == null)
-        //         {
-        //             Console.WriteLine("Unknown category. Please try again.");
-        //             continue;
-        //         }
-
-        //         newVendor.Inventory.Add(newItem);
-
-        //         Console.Write("Do you want to add another item? (y/n): ");
-        //         string? readResult = Console.ReadLine()?.Trim().ToLower();
-
-        //         addNewItem = (readResult == "y");
-        //     } while (addNewItem);
-
-        //     if (newVendor != null && newVendor.Inventory.Count > 0)
-        //     {
-        //         AddVendorToListAndFile(newVendor);
-        //     }
-        // }
+        //methods for menu #2
         public void AddVendorAndInventory()
         {
-            Vendor? newVendor = CreateVendor();
+            Vendor? newVendor = CreateVendorFromUserInput();
             if (newVendor == null)
             {
                 return;
@@ -138,7 +50,7 @@ namespace cSharpSwapMeet
 
             while (true)
             {
-                string? category = GetValidCategory();
+                string? category = GetValidCategoryFromUserInput();
                 if (category == null)
                 {
                     Console.WriteLine("Unknown category. Please try again.");
@@ -147,7 +59,7 @@ namespace cSharpSwapMeet
 
                 double condition = GetConditionFromUser();
 
-                Item? newItem = CreateItem(category, condition);
+                Item? newItem = CreateItemFromUserInput(category, condition);
                 if (newItem == null)
                 {
                     Console.WriteLine("Unknown category. Please try again.");
@@ -168,7 +80,7 @@ namespace cSharpSwapMeet
             }
         }
 
-        private Vendor? CreateVendor()
+        public Vendor? CreateVendorFromUserInput()
         {
             while (true)
             {
@@ -185,7 +97,7 @@ namespace cSharpSwapMeet
             }
         }
 
-        private string? GetValidCategory()
+        private string? GetValidCategoryFromUserInput()
         {
             while (true)
             {
@@ -221,7 +133,7 @@ namespace cSharpSwapMeet
             }
         }
 
-        private Item? CreateItem(string category, double condition)
+        private Item? CreateItemFromUserInput(string category, double condition)
         {
             switch (category.ToLower())
             {
@@ -242,6 +154,71 @@ namespace cSharpSwapMeet
             string? readResult = Console.ReadLine()?.Trim().ToLower();
 
             return readResult == "y";
+        }
+
+        //methods for menu #3
+        public Vendor? GetVendorByVendorName(string vendorNameFromUser)
+        {
+            return Vendors.Find(vendor => vendor.VendorName == vendorNameFromUser);
+        }
+
+        public bool IsVendorNameAlreadyExists(string vendorName)
+        {
+            return Vendors.Any(vendor => vendor.VendorName.Equals(vendorName, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public string GetExistingVendorNameFromUser()
+        {
+            string? vendorName;
+            do
+            {
+                Console.Write("Enter the vendor name (case sensitive): ");
+                vendorName = Console.ReadLine();
+            } while (string.IsNullOrEmpty(vendorName));
+
+            return vendorName;
+        }
+
+        public string GetNewVendorNameFromUser()
+        {
+            string? newVendorName;
+            do
+            {
+                Console.Write("Enter the new vendor name: ");
+                newVendorName = Console.ReadLine();
+
+                if (newVendorName != null)
+                {
+                    if (IsVendorNameAlreadyExists(newVendorName))
+                    {
+                        Console.WriteLine("Vendor name already exists. Please enter a different name.");
+                        newVendorName = null;
+                    }
+                }
+
+            } while (string.IsNullOrEmpty(newVendorName));
+
+            return newVendorName;
+        }
+
+        public void ChangeVendorNameAndSaveToFile()
+        {
+            string vendorNameFromUser = GetExistingVendorNameFromUser();
+
+            Vendor? vendor = GetVendorByVendorName(vendorNameFromUser);
+            if (vendor != null)
+            {
+                string newVendorName = GetNewVendorNameFromUser();
+
+                vendor.VendorName = newVendorName;
+                FileManager.saveInventoryToFile(Vendors);
+
+                Console.WriteLine("Vendor name changed successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Vendor not found. Please check vendor name and try again.");
+            }
         }
 
     }

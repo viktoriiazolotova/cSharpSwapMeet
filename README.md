@@ -8,11 +8,12 @@
 5. DONE:Create Clothing Class that would inheritance from Item class (itemID and category)
 6. DONE:Make default category for Decor class - "Decor", for Electronics - "Electronics", for Clothing Class - "Clothing"
 7. DONE: Set up {Get; set}  for itemID, category for Item and to set up {get, set} for  name for vendor
-8. Test method GetVendorWithInventory, 
-9. Test methods in ServiceManager file 
-10. Test saveInventoryToFile in FileManager
-11. DONE: Fix itemID creation and test
-12. Done: MenuManager
+8. DONE: Fix itemID creation and test
+9. Done: MenuManager
+10. Test method GetVendorWithInventory, 
+11. Test methods in ServiceManager file 
+12. Test saveInventoryToFile in FileManager
+13. Test ServiceManager (tried to test CreateVendorFromUserInput - it is challenging because of getting user input)
 
 
 ## Enhancenment, considerations
