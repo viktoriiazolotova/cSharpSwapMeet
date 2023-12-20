@@ -42,30 +42,14 @@ namespace cSharpSwapMeet
         //methods for menu #2
         public void AddVendorAndInventory()
         {
-            Vendor? newVendor = CreateVendorFromUserInput();
-            if (newVendor == null)
-            {
-                return;
-            }
+            Vendor? newVendor = CreateVendorFromUserInput()!;
 
             while (true)
             {
-                string? category = GetValidCategoryFromUserInput();
-                if (category == null)
-                {
-                    Console.WriteLine("Unknown category. Please try again.");
-                    continue;
-                }
-
+                string? category = GetValidCategoryFromUserInput()!;
                 double condition = GetConditionFromUser();
 
-                Item? newItem = CreateItemFromUserInput(category, condition);
-                if (newItem == null)
-                {
-                    Console.WriteLine("Unknown category. Please try again.");
-                    continue;
-                }
-
+                Item? newItem = CreateItemFromUserInput(category, condition)!;
                 newVendor.Inventory.Add(newItem);
 
                 if (!PromptToAddAnotherItem())
@@ -73,11 +57,7 @@ namespace cSharpSwapMeet
                     break;
                 }
             }
-
-            if (newVendor.Inventory.Count > 0)
-            {
-                AddVendorToListAndFile(newVendor);
-            }
+            AddVendorToListAndFile(newVendor);
         }
 
         public Vendor? CreateVendorFromUserInput()
@@ -93,7 +73,7 @@ namespace cSharpSwapMeet
                     continue;
                 }
 
-                return new Vendor(vendorName);
+                return new Vendor(vendorName.ToLower());
             }
         }
 
@@ -148,6 +128,8 @@ namespace cSharpSwapMeet
             }
         }
 
+        //validation y or n? need to review
+
         private bool PromptToAddAnotherItem()
         {
             Console.Write("Do you want to add another item? (y/n): ");
@@ -159,9 +141,15 @@ namespace cSharpSwapMeet
         //methods for menu #3
         public Vendor? GetVendorByVendorName(string vendorNameFromUser)
         {
+            /*
+            The method searches the Vendors list and returns
+            the first Vendor object that matches the specified condition.
+            If a match is found, it returns the Vendor object. Otherwise, it returns null.
+            */
             return Vendors.Find(vendor => vendor.VendorName == vendorNameFromUser);
         }
 
+        //add this method to validate in option 
         public bool IsVendorNameAlreadyExists(string vendorName)
         {
             return Vendors.Any(vendor => vendor.VendorName.Equals(vendorName, StringComparison.OrdinalIgnoreCase));
@@ -172,7 +160,7 @@ namespace cSharpSwapMeet
             string? vendorName;
             do
             {
-                Console.Write("Enter the vendor name (case sensitive): ");
+                Console.Write("Enter the vendor name: ");
                 vendorName = Console.ReadLine();
             } while (string.IsNullOrEmpty(vendorName));
 
@@ -189,7 +177,7 @@ namespace cSharpSwapMeet
 
                 if (newVendorName != null)
                 {
-                    if (IsVendorNameAlreadyExists(newVendorName))
+                    if (IsVendorNameAlreadyExists(newVendorName.ToLower()))
                     {
                         Console.WriteLine("Vendor name already exists. Please enter a different name.");
                         newVendorName = null;
@@ -198,7 +186,7 @@ namespace cSharpSwapMeet
 
             } while (string.IsNullOrEmpty(newVendorName));
 
-            return newVendorName;
+            return newVendorName.ToLower();
         }
 
         public void ChangeVendorNameAndSaveToFile()
@@ -213,7 +201,7 @@ namespace cSharpSwapMeet
                 vendor.VendorName = newVendorName;
                 FileManager.saveInventoryToFile(Vendors);
 
-                Console.WriteLine("Vendor name changed successfully.");
+                Console.WriteLine($"Vendor name \"{vendorNameFromUser}\" changed successfully to the new name: \"{newVendorName}\".");
             }
             else
             {
@@ -222,6 +210,7 @@ namespace cSharpSwapMeet
         }
 
         //methods for menu #4
+        //prompt to enter again
         public void GetInventoryListingForVendor()
         {
             string vendorName = GetExistingVendorNameFromUser();
