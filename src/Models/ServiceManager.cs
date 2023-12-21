@@ -41,21 +41,25 @@ namespace cSharpSwapMeet
 
         //methods for menu #2
 
-        // ???This method only saves data to file when all items to teh vendor are added
+        // ???This method only saves data to file when all items to the vendor are added
+        //refactored - removed CreateVendorFromUserInput:
+        //added GetNewVendorNameFromUser instead and confirmation string
 
         public void AddVendorAndInventory()
         {
-            Vendor? newVendor = CreateVendorFromUserInput()!;
+            string newVendorName = GetNewVendorNameFromUser();
+            Vendor newVendor = new Vendor(newVendorName);
 
             bool wantsToAddItem;
             do
             {
                 AddItemToInventory(newVendor);
-
                 wantsToAddItem = PromptUser("Do you want to add another item? (y/n): ");
             } while (wantsToAddItem);
 
             AddVendorToListAndFile(newVendor);
+            Console.WriteLine($"\nVendor \"{newVendor.VendorName}\" successuly added.\n{newVendor.GetVendorWithInventory()}");
+
         }
 
         public void AddItemToInventory(Vendor vendor)
@@ -67,22 +71,6 @@ namespace cSharpSwapMeet
             Console.WriteLine($"\nNew item with itemID: {newItem.ItemID} has been added.\n");
         }
 
-        public Vendor? CreateVendorFromUserInput()
-        {
-            while (true)
-            {
-                Console.Write("Enter vendor name: ");
-                string? vendorName = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(vendorName))
-                {
-                    Console.WriteLine("Vendor name is required. Please try again.");
-                    continue;
-                }
-
-                return new Vendor(vendorName.ToLower());
-            }
-        }
 
         private string? GetValidCategoryFromUserInput()
         {
