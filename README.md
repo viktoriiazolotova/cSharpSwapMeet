@@ -20,6 +20,9 @@
 1. Update Remove method to pass int ItemID instead of Item item.
 2. The same as above for checking availability method.
 
+##Features
+1. All vendors name will be saved in lower case and they are non-case sensative
+
 ## Skills Assessed
 
 - Following directions and reading comprehension

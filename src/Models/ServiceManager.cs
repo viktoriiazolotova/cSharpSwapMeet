@@ -40,24 +40,30 @@ namespace cSharpSwapMeet
         }
 
         //methods for menu #2
+
+        //refactored
         public void AddVendorAndInventory()
         {
             Vendor? newVendor = CreateVendorFromUserInput()!;
 
-            while (true)
+            bool wantsToAddItem;
+            do
             {
-                string? category = GetValidCategoryFromUserInput()!;
-                double condition = GetConditionFromUser();
+                AddItemToInventory(newVendor);
 
-                Item? newItem = CreateItemFromUserInput(category, condition)!;
-                newVendor.Inventory.Add(newItem);
+                wantsToAddItem = PromptUser("Do you want to add another item? (y/n): ");
+            } while (wantsToAddItem);
 
-                if (!PromptToAddAnotherItem())
-                {
-                    break;
-                }
-            }
             AddVendorToListAndFile(newVendor);
+        }
+
+        //new method added
+        public void AddItemToInventory(Vendor vendor)
+        {
+            string category = GetValidCategoryFromUserInput()!;
+            double condition = GetConditionFromUser();
+            Item newItem = CreateItemFromUserInput(category, condition)!;
+            vendor.Inventory.Add(newItem);
         }
 
         public Vendor? CreateVendorFromUserInput()
@@ -128,12 +134,26 @@ namespace cSharpSwapMeet
             }
         }
 
-        //validation y or n? need to review
-
-        private bool PromptToAddAnotherItem()
+        //refactored to have promptMessage as Input
+        public bool PromptUser(string promptMessage)
         {
-            Console.Write("Do you want to add another item? (y/n): ");
-            string? readResult = Console.ReadLine()?.Trim().ToLower();
+            string? readResult;
+            bool validInput = false;
+
+            do
+            {
+                Console.Write(promptMessage);
+                readResult = Console.ReadLine()?.Trim().ToLower();
+
+                if (readResult == "y" || readResult == "n")
+                {
+                    validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter 'y' or 'n'.");
+                }
+            } while (!validInput);
 
             return readResult == "y";
         }
@@ -149,7 +169,7 @@ namespace cSharpSwapMeet
             return Vendors.Find(vendor => vendor.VendorName == vendorNameFromUser);
         }
 
-        //add this method to validate in option 
+        //still need to do: add this method to validate in option 
         public bool IsVendorNameAlreadyExists(string vendorName)
         {
             return Vendors.Any(vendor => vendor.VendorName.Equals(vendorName, StringComparison.OrdinalIgnoreCase));
@@ -210,21 +230,36 @@ namespace cSharpSwapMeet
         }
 
         //methods for menu #4
-        //prompt to enter again
+        //added used method to ask for prompt
         public void GetInventoryListingForVendor()
         {
-            string vendorName = GetExistingVendorNameFromUser();
-            Vendor? vendor = GetVendorByVendorName(vendorName);
 
-            if (vendor != null)
+            bool wantsToContinue;
+            do
             {
-                Console.WriteLine(vendor.GetVendorWithInventory());
-            }
-            else
-            {
-                Console.WriteLine("Vendor not found.");
-            }
+                string vendorName = GetExistingVendorNameFromUser();
+                Vendor? vendor = GetVendorByVendorName(vendorName);
+                if (vendor != null)
+                {
+                    Console.WriteLine(vendor.GetVendorWithInventory());
+                }
+                else
+                {
+                    Console.WriteLine("Vendor not found.");
+                }
+                wantsToContinue = PromptUser("Do you want to get inventory for another vendor? (y/n): ");
+            } while (wantsToContinue);
         }
+
+        //method #5
+
+
+        public void AddItemToInventoryForVendorAndSaveToFile()
+        {
+            //to do 
+        }
+
+
 
 
     }
