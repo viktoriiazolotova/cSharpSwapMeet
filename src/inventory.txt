@@ -1,6 +1,8 @@
 vendor1|1|Decor|2.5|2|Electronics|4|3|Clothing|5
-lisa|4|Electronics|3|5|Decor|2|6|Clothing|4.5
+eli|4|Electronics|3|5|Decor|2|6|Clothing|4.5|96614|Electronics|0|613585|Decor|4|894680|Decor|0|579043|Clothing|4|281521|Decor|0|272915|Decor|5
 Vendor3|7|Clothing|3.5|8|Decor|1.5|9|Electronics|4.2
-Vendor4|10|Decor|2.8|11|Clothing|4|12|Electronics|3.8
-Vendor5|13|Electronics|0|14|Decor|3.2|15|Clothing|2|16|Clothing|2.5
-frank|684606|Decor|4|121125|Clothing|3|545484|Electronics|1
+vendor4|10|Decor|2.8|11|Clothing|4|12|Electronics|3.8
+vendor5|13|Electronics|0|14|Decor|3.2|15|Clothing|2|16|Clothing|2.5
+franky|342422|Decor|2|438134|Clothing|0|390997|Decor|5|389619|Electronics|4|568406|Decor|4
+eli|687053|Decor|0
+eli|533561|Decor|4

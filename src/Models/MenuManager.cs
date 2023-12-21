@@ -68,6 +68,7 @@ namespace cSharpSwapMeet
         {
             Console.Clear();
 
+
             Console.WriteLine("Welcome to The Swap Meet application");
             Console.WriteLine("\nMenu:\n");
             Console.WriteLine("1. List all vendors and their inventory");
@@ -82,6 +83,7 @@ namespace cSharpSwapMeet
             Console.WriteLine("10. Swap specific items between vendors");
             Console.WriteLine("11. Swap best items between vendors");
             Console.WriteLine("12. Exit");
+
         }
 
         private string? GetUserInput()

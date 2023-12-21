@@ -155,9 +155,9 @@ namespace cSharpSwapMeet
         public string GetVendorWithInventory()
         {
             string inventoryString = string.Join("", Inventory.Select(item =>
-                $"Category: {item.Category},\titemID: {item.ItemID}, condition: {item.Condition}\n"));
+                $"Category: {item.Category},\titemID: {item.ItemID},\tcondition: {item.Condition}\n"));
 
-            return $"{VendorName}:\n{inventoryString}";
+            return $"Vendor name \"{VendorName}\" has items:\n\n{inventoryString}";
         }
     }
 }

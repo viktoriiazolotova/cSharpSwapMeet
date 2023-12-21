@@ -41,7 +41,8 @@ namespace cSharpSwapMeet
 
         //methods for menu #2
 
-        //refactored
+        // ???This method only saves data to file when all items to teh vendor are added
+
         public void AddVendorAndInventory()
         {
             Vendor? newVendor = CreateVendorFromUserInput()!;
@@ -57,13 +58,13 @@ namespace cSharpSwapMeet
             AddVendorToListAndFile(newVendor);
         }
 
-        //new method added
         public void AddItemToInventory(Vendor vendor)
         {
             string category = GetValidCategoryFromUserInput()!;
             double condition = GetConditionFromUser();
             Item newItem = CreateItemFromUserInput(category, condition)!;
             vendor.Inventory.Add(newItem);
+            Console.WriteLine($"\nNew item with itemID: {newItem.ItemID} has been added.\n");
         }
 
         public Vendor? CreateVendorFromUserInput()
@@ -134,7 +135,6 @@ namespace cSharpSwapMeet
             }
         }
 
-        //refactored to have promptMessage as Input
         public bool PromptUser(string promptMessage)
         {
             string? readResult;
@@ -169,12 +169,13 @@ namespace cSharpSwapMeet
             return Vendors.Find(vendor => vendor.VendorName == vendorNameFromUser);
         }
 
-        //still need to do: add this method to validate in option 
+        //still need to do: add this method to validate in option 2
         public bool IsVendorNameAlreadyExists(string vendorName)
         {
             return Vendors.Any(vendor => vendor.VendorName.Equals(vendorName, StringComparison.OrdinalIgnoreCase));
         }
 
+        //refactored this one by checking if vendor exist
         public string GetExistingVendorNameFromUser()
         {
             string? vendorName;
@@ -182,10 +183,19 @@ namespace cSharpSwapMeet
             {
                 Console.Write("Enter the vendor name: ");
                 vendorName = Console.ReadLine();
+                if (vendorName != null)
+                {
+                    if (!IsVendorNameAlreadyExists(vendorName.ToLower()))
+                    {
+                        Console.WriteLine("Vendor name does not found. Please try again.");
+                        vendorName = null;
+                    }
+                }
             } while (string.IsNullOrEmpty(vendorName));
 
             return vendorName;
         }
+
 
         public string GetNewVendorNameFromUser()
         {
@@ -223,14 +233,9 @@ namespace cSharpSwapMeet
 
                 Console.WriteLine($"Vendor name \"{vendorNameFromUser}\" changed successfully to the new name: \"{newVendorName}\".");
             }
-            else
-            {
-                Console.WriteLine("Vendor not found. Please check vendor name and try again.");
-            }
         }
 
         //methods for menu #4
-        //added used method to ask for prompt
         public void GetInventoryListingForVendor()
         {
 
@@ -241,7 +246,7 @@ namespace cSharpSwapMeet
                 Vendor? vendor = GetVendorByVendorName(vendorName);
                 if (vendor != null)
                 {
-                    Console.WriteLine(vendor.GetVendorWithInventory());
+                    Console.WriteLine("\n" + vendor.GetVendorWithInventory());
                 }
                 else
                 {
@@ -251,12 +256,28 @@ namespace cSharpSwapMeet
             } while (wantsToContinue);
         }
 
-        //method #5
-
+        //method #5 -  Add an item to the vendor's inventory
 
         public void AddItemToInventoryForVendorAndSaveToFile()
         {
-            //to do 
+            /*
+            This method updates file every time new item has been added
+            */
+            string vendorNameFromUser = GetExistingVendorNameFromUser();
+
+            Vendor? vendor = GetVendorByVendorName(vendorNameFromUser)!;
+            bool wantsToAddItem;
+            do
+            {
+                AddItemToInventory(vendor);
+                FileManager.saveInventoryToFile(Vendors);
+
+                wantsToAddItem = PromptUser("Do you want to add another item? (y/n): ");
+            } while (wantsToAddItem);
+
+
+            Console.WriteLine($"\nHere is the updated inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
+
         }
 
 
