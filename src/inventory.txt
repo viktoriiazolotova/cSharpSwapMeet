@@ -10,5 +10,5 @@ eliana|854877|Decor|3|529331|Decor|3
 vika|587583|Clothing|4|708783|Decor|3
 vova|616570|Decor|2|169057|Decor|5|681375|Clothing|4
 alla|658657|Decor|4|152808|Decor|3|222376|Clothing|4
-2|64568|Decor|3
-anna|703986|Decor|4|961860|Clothing|4|197813|Decor|5|371305|Clothing|4
+2
+anna|491827|Decor|5

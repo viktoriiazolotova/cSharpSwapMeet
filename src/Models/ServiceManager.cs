@@ -263,9 +263,66 @@ namespace cSharpSwapMeet
                 wantsToAddItem = PromptUser("Do you want to add another item? (y/n): ");
             } while (wantsToAddItem);
 
-
             Console.WriteLine($"\nHere is the updated inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
+        }
 
+        //Method for menu 6 - Remove item from inventory by itemId
+        public void RemoveItemFromVendorAndSaveToFile()
+        {
+            string vendorName = GetExistingVendorNameFromUser();
+            Vendor? vendor = GetVendorByVendorName(vendorName)!;
+
+            if (vendor.Inventory.Count == 0)
+            {
+                Console.WriteLine($"\nVendor {vendor.VendorName}'s inventory is empty! No items to be removed.");
+                return;
+            }
+
+            bool wantsToRemoveItem;
+            do
+            {
+                int itemId = GetValidItemIdFromUser();
+                //this below check if item exist in vendor
+                Item? itemToRemove = GetItemByItemId(vendor, itemId);
+
+                if (itemToRemove != null)
+                {
+                    vendor.Inventory.Remove(itemToRemove);
+                    FileManager.saveInventoryToFile(Vendors);
+                    Console.WriteLine($"\nItem with ID {itemId} has been removed from the inventory.\n");
+                    Console.WriteLine($"\nHere is the updated inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
+
+                }
+                else
+                {
+                    Console.WriteLine($"\nItem with ID {itemId} not found in the {vendor.VendorName}\'s inventory.\n");
+                }
+
+                wantsToRemoveItem = PromptUser("Do you want to remove another item? (y/n): ");
+            } while (wantsToRemoveItem);
+
+
+        }
+
+        private int GetValidItemIdFromUser()
+        {
+            while (true)
+            {
+                Console.Write("Enter the item ID to remove: ");
+                string? itemIdInput = Console.ReadLine();
+
+                if (int.TryParse(itemIdInput, out int itemId))
+                {
+                    return itemId;
+                }
+
+                Console.WriteLine("Invalid item ID. Please enter a valid integer value.");
+            }
+        }
+
+        private Item? GetItemByItemId(Vendor vendor, int itemId)
+        {
+            return vendor.Inventory.Find(item => item.ItemID == itemId);
         }
 
 
