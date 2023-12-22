@@ -36,7 +36,7 @@ namespace cSharpSwapMeet
 
         public override string ToString()
         {
-            return $"This item with ID {ItemID} belongs to the category of {Category}";
+            return $"Category: {Category},\titemID: {ItemID},\tcondition: {Condition}\n";
         }
 
         public string GetConditionDescription()

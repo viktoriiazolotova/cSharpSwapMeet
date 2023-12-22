@@ -36,7 +36,7 @@ namespace cSharpSwapMeet
                         newInstanceServiceManager.RemoveItemFromVendorAndSaveToFile();
                         break;
                     case "7":
-                        Console.WriteLine("This feature is in progress...");
+                        newInstanceServiceManager.DisplayItemsByCategoryForVendor();
                         break;
                     case "8":
                         Console.WriteLine("This feature is in progress...");

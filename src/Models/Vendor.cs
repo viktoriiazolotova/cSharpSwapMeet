@@ -60,22 +60,9 @@ namespace cSharpSwapMeet
 
         public List<Item> GetItemsByCategory(string category)
         {
-            List<Item> ItemsByCategory = new();
-            foreach (var item in Inventory)
-            {
-                if (item.Category == category)
-                {
-                    ItemsByCategory.Add(item);
-                }
-
-            }
-            return ItemsByCategory;
+            return Inventory.FindAll(item => string.Equals(item.Category, category, StringComparison.OrdinalIgnoreCase));
         }
-        //refactoring using LINQ
-        // public List<Item> GetItemsByCategory(string category)
-        // {
-        //     return Inventory.Where(item => item.Category == category).ToList();
-        // }
+
         public string SwapItems(Vendor swappedVendor, Item myItem, Item theirItem)
         {
             string result = "";
@@ -152,12 +139,21 @@ namespace cSharpSwapMeet
 
             return false;
         }
-        public string GetVendorWithInventory()
-        {
-            string inventoryString = string.Join("", Inventory.Select(item =>
-                $"Category: {item.Category},\titemID: {item.ItemID},\tcondition: {item.Condition}\n"));
+        // public string GetVendorWithInventory()
+        // {
+        //     // string inventoryString = string.Join("", Inventory.Select(item =>
+        //     //     $"Category: {item.Category},\titemID: {item.ItemID},\tcondition: {item.Condition}\n"));
+        //     string inventoryString = string.Join("", Inventory.Select(item => item.ToString()));
 
-            return $"Vendor name \"{VendorName}\" has items:\n\n{inventoryString}";
+        //     return $"Vendor name \"{VendorName}\" has {Inventory.Count} items:\n\n{inventoryString}";
+        // }
+
+        public string GetVendorWithInventory(List<Item>? inventory = null)
+        {
+            List<Item> inventoryToUse = inventory ?? Inventory;
+            string inventoryString = string.Join("", inventoryToUse.Select(item => item.ToString()));
+
+            return $"Vendor name \"{VendorName}\" has {inventoryToUse.Count} items:\n\n{inventoryString}";
         }
     }
 }

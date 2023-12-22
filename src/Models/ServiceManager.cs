@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 
 namespace cSharpSwapMeet
 {
@@ -336,7 +337,40 @@ namespace cSharpSwapMeet
             return vendor.Inventory.Find(item => item.ItemID == itemId);
         }
 
-        //Method for menu 7 - Get all items by the category for vendor
+        // Method for menu #7 - Get all items by category for vendor
+        public void DisplayItemsByCategoryForVendor()
+        {
+            string vendorName = GetExistingVendorNameFromUser();
+            Vendor? vendor = GetVendorByVendorName(vendorName)!;
+
+            if (vendor.Inventory.Count == 0)
+            {
+                Console.WriteLine($"\nVendor {vendor.VendorName}'s inventory is empty.");
+                return;
+            }
+
+            bool continueToCheck;
+            do
+            {
+                string category = GetValidCategoryFromUserInput()!;
+                List<Item> itemsByCategory = vendor.GetItemsByCategory(category);
+
+                if (itemsByCategory.Count > 0)
+                {
+
+                    Console.WriteLine(vendor.GetVendorWithInventory(itemsByCategory));
+                }
+                else
+                {
+                    Console.WriteLine($"\nNo items found in the category \"{category}\" for vendor \"{vendor.VendorName}\".\n");
+                }
+                continueToCheck = PromptUser("Would you like to check items by other category? (y/n): ");
+
+            } while (continueToCheck);
+
+
+        }
+
 
 
 
