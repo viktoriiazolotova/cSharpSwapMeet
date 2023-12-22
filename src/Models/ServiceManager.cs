@@ -283,6 +283,8 @@ namespace cSharpSwapMeet
             do
             {
                 Console.WriteLine($"\nHere is the current inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
+                //added this line and refactored method: GetValidItemIdFromUser
+                Console.WriteLine("To remove item:");
                 RemoveItemFromInventory(vendor);
 
                 if (vendor.Inventory.Count == 0)
@@ -301,7 +303,6 @@ namespace cSharpSwapMeet
         private void RemoveItemFromInventory(Vendor vendor)
         {
             int itemId = GetValidItemIdFromUser();
-            //this below check if item exist in vendor
             Item? itemToRemove = GetItemByItemId(vendor, itemId);
 
             if (itemToRemove != null)
@@ -320,7 +321,8 @@ namespace cSharpSwapMeet
         {
             while (true)
             {
-                Console.Write("Enter the item ID to remove: ");
+                //removed from string 'to remove item' to make method reusable
+                Console.Write("Enter the item ID: ");
                 string? itemIdInput = Console.ReadLine();
 
                 if (int.TryParse(itemIdInput, out int itemId))
@@ -334,6 +336,10 @@ namespace cSharpSwapMeet
 
         private Item? GetItemByItemId(Vendor vendor, int itemId)
         {
+            /*
+            This method returns Item object if it exist in Vendor inventory
+            o null if no itemId found in Vendor Inventory
+            */
             return vendor.Inventory.Find(item => item.ItemID == itemId);
         }
 
@@ -367,13 +373,30 @@ namespace cSharpSwapMeet
                 continueToCheck = PromptUser("Would you like to check items by other category? (y/n): ");
 
             } while (continueToCheck);
-
-
         }
 
+        //Method for menu 8 -CheckItemAvailabilityForVendor
+        public void CheckItemAvailabilityForVendor()
+        {
+            string vendorName = GetExistingVendorNameFromUser();
+            Vendor? vendor = GetVendorByVendorName(vendorName)!;
+            bool wantToAnotherItem;
+            do
+            {
+                int itemIdToCheck = GetValidItemIdFromUser();
+                //below could be another method
+                Item? itemToCheck = GetItemByItemId(vendor, itemIdToCheck);
+                if (itemToCheck == null)
+                {
+                    Console.WriteLine($"\nItem with ID {itemIdToCheck} not found in the {vendor.VendorName}\'s inventory.\n");
+                }
+                else
+                {
+                    Console.WriteLine($"\nItem with ID {itemIdToCheck} is available in the {vendor.VendorName}\'s inventory.\n");
+                }
 
-
-
-
+                wantToAnotherItem = PromptUser("Would you like to check another item? (y/n): ");
+            } while (wantToAnotherItem);
+        }
     }
 }

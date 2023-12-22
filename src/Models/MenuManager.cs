@@ -39,7 +39,7 @@ namespace cSharpSwapMeet
                         newInstanceServiceManager.DisplayItemsByCategoryForVendor();
                         break;
                     case "8":
-                        Console.WriteLine("This feature is in progress...");
+                        newInstanceServiceManager.CheckItemAvailabilityForVendor();
                         break;
                     case "9":
                         Console.WriteLine("This feature is in progress...");
@@ -79,9 +79,9 @@ namespace cSharpSwapMeet
             Console.WriteLine("6. Remove an item from the vendor's inventory");
             Console.WriteLine("7. Get all items by category for the specific vendor");
             Console.WriteLine("8. Check item availability in vendor inventory");
-            Console.WriteLine("9. Get best item by category for a vendor");
+            Console.WriteLine("9. Optional: Get best item by category for a vendor");
             Console.WriteLine("10. Swap specific items between vendors");
-            Console.WriteLine("11. Swap best items between vendors");
+            Console.WriteLine("11. Optional: Swap best items between vendors");
             Console.WriteLine("12. Exit");
 
         }

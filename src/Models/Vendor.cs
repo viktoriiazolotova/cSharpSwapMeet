@@ -150,6 +150,11 @@ namespace cSharpSwapMeet
 
         public string GetVendorWithInventory(List<Item>? inventory = null)
         {
+            /*
+            This method has an optional parameter that allows you to pass a specific inventory list.
+            If no inventory is provided, it uses the default inventory of the vendor.
+
+            */
             List<Item> inventoryToUse = inventory ?? Inventory;
             string inventoryString = string.Join("", inventoryToUse.Select(item => item.ToString()));
 
