@@ -398,5 +398,62 @@ namespace cSharpSwapMeet
                 wantToAnotherItem = PromptUser("Would you like to check another item? (y/n): ");
             } while (wantToAnotherItem);
         }
+
+        //Method for menu 10 - SwapItemsBetweenVendors
+        public void SwapItemsBetweenVendorsAndSaveToFile()
+        {
+            bool wantsToContinueSwap;
+            do
+            {
+                Console.WriteLine("Select the source vendor:");
+                string sourceVendorName = GetExistingVendorNameFromUser();
+                Vendor? sourceVendor = GetVendorByVendorName(sourceVendorName)!;
+                if (sourceVendor.Inventory.Count == 0)
+                {
+                    Console.WriteLine($"Selected vendor {sourceVendor.VendorName} has 0 items. Swap not possible. Try another vendor.");
+                    return;
+                }
+
+                Console.WriteLine("Select the target vendor:");
+                string targetVendorName = GetExistingVendorNameFromUser();
+                Vendor? targetVendor = GetVendorByVendorName(targetVendorName)!;
+                if (targetVendor.Inventory.Count == 0)
+                {
+                    Console.WriteLine($"Selected vendor {targetVendor.VendorName} has 0 items. Swapping is not possible. Try another vendor.");
+                    return;
+                }
+
+                Console.WriteLine($"\nHere is the current inventory listing for vendor:\n{sourceVendor.GetVendorWithInventory()}");
+                Console.WriteLine($"\nHere is the current inventory listing for vendor:\n{targetVendor.GetVendorWithInventory()}");
+                Console.WriteLine($"\nSelect the item for source vendor {sourceVendor.VendorName}:");
+                int itemIdSourceVendor = GetValidItemIdFromUser();
+
+                Item? itemSourceVendor = GetItemByItemId(sourceVendor, itemIdSourceVendor);
+                //or replace by ! at the end
+                if (itemSourceVendor == null)
+                {
+                    Console.WriteLine("Item not found in the source vendor's inventory.");
+                    return;
+                }
+
+                Console.WriteLine($"\nSelect the item for target vendor {targetVendor.VendorName}:");
+                int itemIdTargetVendor = GetValidItemIdFromUser();
+
+                Item? itemTargetVendor = GetItemByItemId(targetVendor, itemIdTargetVendor);
+
+                //or replace by ! at the end
+                if (itemTargetVendor == null)
+                {
+                    Console.WriteLine("Item not found in the source vendor's inventory.");
+                    return;
+                }
+                sourceVendor.SwapItems(targetVendor, itemSourceVendor, itemTargetVendor);
+                FileManager.saveInventoryToFile(Vendors);
+
+                Console.WriteLine($"\nItem with ID {itemIdSourceVendor} has been swapped from {sourceVendor.VendorName} to {targetVendor.VendorName}.");
+                Console.WriteLine($"\nItem with ID {itemIdTargetVendor} has been swapped from {targetVendor.VendorName} to {sourceVendor.VendorName}./n");
+                wantsToContinueSwap = PromptUser("Would you like to contuniue to swap? (y/n): ");
+            } while (wantsToContinueSwap);
+        }
     }
 }

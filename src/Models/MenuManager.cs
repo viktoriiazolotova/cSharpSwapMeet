@@ -45,7 +45,7 @@ namespace cSharpSwapMeet
                         Console.WriteLine("This feature is in progress...");
                         break;
                     case "10":
-                        Console.WriteLine("This feature is in progress...");
+                        newInstanceServiceManager.SwapItemsBetweenVendorsAndSaveToFile();
                         break;
                     case "11":
                         Console.WriteLine("This feature is in progress...");
