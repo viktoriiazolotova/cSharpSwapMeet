@@ -278,13 +278,12 @@ namespace cSharpSwapMeet
                 return;
             }
 
-            Console.WriteLine($"\nHere is the current inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
-
             bool wantsToRemoveItem;
             do
             {
+                Console.WriteLine($"\nHere is the current inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
                 RemoveItemFromInventory(vendor);
-                Console.WriteLine($"\nHere is the updated inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
+
                 if (vendor.Inventory.Count == 0)
                 {
                     Console.WriteLine($"\nVendor {vendor.VendorName}'s inventory is now empty. No more items to be removed.");
@@ -293,6 +292,8 @@ namespace cSharpSwapMeet
 
                 wantsToRemoveItem = PromptUser("Do you want to remove another item? (y/n): ");
             } while (wantsToRemoveItem);
+
+            Console.WriteLine($"\nYou have finished removing items from the inventory of vendor \"{vendor.VendorName}\".");
 
         }
 
@@ -334,6 +335,8 @@ namespace cSharpSwapMeet
         {
             return vendor.Inventory.Find(item => item.ItemID == itemId);
         }
+
+        //Method for menu 7 - Get all items by the category for vendor
 
 
 
