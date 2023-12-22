@@ -7,8 +7,8 @@ franky|342422|Decor|2|438134|Clothing|0|390997|Decor|5|389619|Electronics|4|5684
 eli|687053|Decor|0
 eli|533561|Decor|4
 eliana|854877|Decor|3|529331|Decor|3
-vika|587583|Clothing|4|708783|Decor|3
+vika
 vova|616570|Decor|2|169057|Decor|5|681375|Clothing|4
-alla|658657|Decor|4|152808|Decor|3|222376|Clothing|4
+alla
 2
-anna|491827|Decor|5
+anna

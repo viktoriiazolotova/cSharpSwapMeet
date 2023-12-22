@@ -281,27 +281,35 @@ namespace cSharpSwapMeet
             bool wantsToRemoveItem;
             do
             {
-                int itemId = GetValidItemIdFromUser();
-                //this below check if item exist in vendor
-                Item? itemToRemove = GetItemByItemId(vendor, itemId);
-
-                if (itemToRemove != null)
+                RemoveItemFromInventory(vendor);
+                Console.WriteLine($"\nHere is the updated inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
+                if (vendor.Inventory.Count == 0)
                 {
-                    vendor.Inventory.Remove(itemToRemove);
-                    FileManager.saveInventoryToFile(Vendors);
-                    Console.WriteLine($"\nItem with ID {itemId} has been removed from the inventory.\n");
-                    Console.WriteLine($"\nHere is the updated inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
-
-                }
-                else
-                {
-                    Console.WriteLine($"\nItem with ID {itemId} not found in the {vendor.VendorName}\'s inventory.\n");
+                    Console.WriteLine($"\nVendor {vendor.VendorName}'s inventory is now empty. No more items to be removed.");
+                    break;
                 }
 
                 wantsToRemoveItem = PromptUser("Do you want to remove another item? (y/n): ");
             } while (wantsToRemoveItem);
 
+        }
 
+        private void RemoveItemFromInventory(Vendor vendor)
+        {
+            int itemId = GetValidItemIdFromUser();
+            //this below check if item exist in vendor
+            Item? itemToRemove = GetItemByItemId(vendor, itemId);
+
+            if (itemToRemove != null)
+            {
+                vendor.Inventory.Remove(itemToRemove);
+                FileManager.saveInventoryToFile(Vendors);
+                Console.WriteLine($"\nItem with ID {itemId} has been removed from the inventory.\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nItem with ID {itemId} not found in the {vendor.VendorName}\'s inventory.\n");
+            }
         }
 
         private int GetValidItemIdFromUser()
