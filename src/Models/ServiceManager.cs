@@ -278,6 +278,8 @@ namespace cSharpSwapMeet
                 return;
             }
 
+            Console.WriteLine($"\nHere is the current inventory listing for vendor:\n{vendor.GetVendorWithInventory()}");
+
             bool wantsToRemoveItem;
             do
             {
