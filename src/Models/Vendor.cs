@@ -99,7 +99,6 @@ namespace cSharpSwapMeet
             Returns the best first item by category or null if there are no items in that category.
             */
 
-            // Check if the vendor has any items
             if (Inventory.Count == 0)
             {
                 return null;
@@ -139,14 +138,6 @@ namespace cSharpSwapMeet
 
             return false;
         }
-        // public string GetVendorWithInventory()
-        // {
-        //     // string inventoryString = string.Join("", Inventory.Select(item =>
-        //     //     $"Category: {item.Category},\titemID: {item.ItemID},\tcondition: {item.Condition}\n"));
-        //     string inventoryString = string.Join("", Inventory.Select(item => item.ToString()));
-
-        //     return $"Vendor name \"{VendorName}\" has {Inventory.Count} items:\n\n{inventoryString}";
-        // }
 
         public string GetVendorWithInventory(List<Item>? inventory = null)
         {

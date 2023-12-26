@@ -42,15 +42,9 @@ namespace cSharpSwapMeet
                         newInstanceServiceManager.CheckItemAvailabilityForVendor();
                         break;
                     case "9":
-                        Console.WriteLine("This feature is in progress...");
-                        break;
-                    case "10":
                         newInstanceServiceManager.SwapItemsBetweenVendorsAndSaveToFile();
                         break;
-                    case "11":
-                        Console.WriteLine("This feature is in progress...");
-                        break;
-                    case "12":
+                    case "10":
                         Console.WriteLine("Exiting the program. Bye!");
                         displayMenu = false;
                         return;
@@ -68,7 +62,6 @@ namespace cSharpSwapMeet
         {
             Console.Clear();
 
-
             Console.WriteLine("Welcome to The Swap Meet application");
             Console.WriteLine("\nMenu:\n");
             Console.WriteLine("1. List all vendors and their inventory");
@@ -79,16 +72,13 @@ namespace cSharpSwapMeet
             Console.WriteLine("6. Remove an item from the vendor's inventory");
             Console.WriteLine("7. Get all items by category for the specific vendor");
             Console.WriteLine("8. Check item availability in vendor inventory");
-            Console.WriteLine("9. Optional: Get best item by category for a vendor");
-            Console.WriteLine("10. Swap specific items between vendors");
-            Console.WriteLine("11. Optional: Swap best items between vendors");
-            Console.WriteLine("12. Exit");
-
+            Console.WriteLine("9. Swap specific items between vendors");
+            Console.WriteLine("10. Exit");
         }
 
         private string? GetUserInput()
         {
-            Console.Write("\nEnter your choice (1-12): ");
+            Console.Write("\nEnter your choice (1-10): ");
             return Console.ReadLine();
         }
 
