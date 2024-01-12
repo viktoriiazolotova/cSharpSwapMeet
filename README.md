@@ -17,12 +17,9 @@
 
 
 ## Enhancenment, considerations
-1. Update Remove method to pass int ItemID instead of Item item.
-2. The same as above for checking availability method.
-3.Add method -  Swap best items between vendors
-4.Get best item by category for a vendor
 
-##Features
+
+## Features
 1. All vendors name will be saved in lower case and they are non-case sensative
 
 ## Skills Assessed
@@ -175,17 +172,3 @@ The remaining tests in wave 6 imply:
     - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
     - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
 
-### DRYing up the code
-
-To further reduce the amount of repeated code in your project, consider how `swap_best_by_category` and `swap_first_item` might be able to make use of `swap_items`. Is there a way that these methods could incorporate a call to `swap_items` into the body of these methods?
-
-Try it out and see if the tests still pass! If you can't get them to pass with this refactor, you can always return to the most recent working commit before you submit the project!
-
-## Optional Enhancements
-
-Should a project be completed before submission, and there is a desire for optional enhancements, consider this idea:
-
-- `Item`s have age
-  - Add an `age` attribute to all `Item`s
-  - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
-  - Write unit tests for `swap_by_newest`
