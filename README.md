@@ -21,13 +21,10 @@ After executing an action, press Enter to continue and return to the main menu.
 
 ## Features
 
-- User-friendly console interface for easy navigation.
-- Browse and search for available items.
-- List items for sale and set desired prices.
-- Make purchases and complete transactions.
-- Negotiate and initiate trades with other users.
-- Track your inventory and transactions.
-- Secure authentication and user account management.
+1. Vendor Managament
+2. Inventory Management
+3. Service Managment
+4. Menu Managment
 
 ## Requirements
 
@@ -39,22 +36,22 @@ To run the Swap Meet application, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Open the project in your preferred C# development environment.
-3. Build the project to compile the code.
-4. Run the application.
+3. Build the project to compile the code:
+   
+   ```bash
+   dotnet build
+   ```
+5. Run the application:
+  
+    ```bash
+    dotnet run
+    ```
 
-## How to Run
-
-```bash
-dotnet run
-```
+## Enhancement Considerations
+1. Improve code readability and maintainability.
+2. Add error handling and input validation.
 
 ## Contributing
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please let us know.
 
-## Enhancement Considerations
-Test the GetVendorWithInventory method.
-Test methods in the ServiceManager file.
-Test the saveInventoryToFile method in the FileManager.
-Test the ServiceManager (e.g., CreateVendorFromUserInput).
-Improve code readability and maintainability.
-Add error handling and input validation.
+
