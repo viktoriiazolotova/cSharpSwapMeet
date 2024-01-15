@@ -6,27 +6,33 @@ Swap Meet is a console-based application developed in C# and .NET. The program a
 
 Upon running the application, you will be presented with a menu of options. Enter a number corresponding to the desired action and press Enter to proceed. The available options are:
 
-1. List all vendors and their inventory.
-2. Add a new vendor and their inventory.
-3. Edit a vendor name.
-4. Get inventory listing for the specific vendor.
-5. Add an item to the vendor's inventory.
-6. Remove an item from the vendor's inventory.
-7. Get all items by category for the specific vendor.
-8. Check item availability in vendor inventory.
-9. Swap specific items between vendors.
-10. Exits the program.
+<img width="525" alt="image" src="https://github.com/viktoriiazolotova/cSharpSwapMeet/assets/74393811/1c31829b-d5bb-4e92-96cf-ed8badd57e7b">
+
 
 After executing an action, press Enter to continue and return to the main menu.
 
 ## Features
+1. **Vendor Management:**
+- Add, edit, and remove vendors.
+- List vendors and their inventories.
+- Get inventory listing for a specific vendor.
+  
+2. **Inventory Management:**
+- Add and remove items from a vendor's inventory.
+- Get all items by category for a specific vendor.
+- Check item availability in a vendor's inventory.
 
-1. Vendor Manager
-2. Inventory Manager
-3. File Manager
-4. Service Manager
-5. Menu Manager
+3. **File Manager:**
+- Save vendor and inventory data to a  txt file.
+- Load vendor and inventory data from a txt file.
 
+4. **Service Management:**
+- Swap specific items between vendors.
+
+5. **Menu Management:**
+- Display a user-friendly menu with numbered options.
+- Execute selected actions and return to the main menu.
+  
 ## Requirements
 
 1. .NET SDK
